@@ -1,0 +1,8 @@
+name: flutter_clearmind_archetype
+
+command:
+  bootstrap:
+    runPubGetInParallel: false
+
+packages:
+  - packages/*
