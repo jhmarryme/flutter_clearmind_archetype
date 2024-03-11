@@ -56,7 +56,7 @@ app.*.map.json
 *.mapper.dart
 *.gen.dart
 *.mocks.dart
-resources/lib/src/generated
+resource/lib/src/generated
 app/lib/ui/res/generated
 data/lib/src/repository/model/generated
 

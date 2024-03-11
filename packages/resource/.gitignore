@@ -27,3 +27,7 @@ migrate_working_dir/
 **/doc/api/
 .dart_tool/
 build/
+/lib/src/generated/intl/messages_all.dart
+/lib/src/generated/intl/messages_en.dart
+/lib/src/generated/intl/messages_ja.dart
+/lib/src/generated/l10n.dart
