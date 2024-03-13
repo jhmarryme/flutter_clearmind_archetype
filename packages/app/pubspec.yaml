@@ -17,7 +17,7 @@ dependencies:
   flutter_clearmind_archetype_domain:
     path: ../domain
   flutter_bloc: 8.0.1
-  flutter_screenutil: 5.8.4
+  flutter_screenutil: ^5.9.0
   get_it: 7.6.0
   injectable: 2.1.2
 
