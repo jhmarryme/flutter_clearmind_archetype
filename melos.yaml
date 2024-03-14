@@ -3,7 +3,16 @@ name: flutter_clearmind_archetype
 command:
   bootstrap:
     runPubGetInParallel: false
+    environment:
+      sdk: ">=3.3.0 <4.0.0"
+      flutter: ">=3.3.0 <4.0.0"
+    dependencies:
 
+    dev_dependencies:
+      build_runner: ^2.4.8
+      flutter_lints: ^3.0.1
+      flutter_test:
+        sdk: flutter
 packages:
   - packages/*
 
