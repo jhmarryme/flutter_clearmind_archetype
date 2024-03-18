@@ -66,6 +66,21 @@ class AppDimen {
     }
   }
 
+  Widget responsiveWidget({
+    required Widget mobile,
+    Widget? tablet,
+    Widget? ultraTablet,
+  }) {
+    switch (screenType) {
+      case ScreenType.mobile:
+        return mobile;
+      case ScreenType.tablet:
+        return tablet ?? mobile;
+      case ScreenType.ultraTablet:
+        return ultraTablet ?? mobile;
+    }
+  }
+
   static ScreenType _getScreenType(double screenWidth) {
     if (screenWidth <= DeviceConstants.maxMobileWidth) {
       return ScreenType.mobile;
@@ -84,6 +99,20 @@ extension ResponsiveDoubleExtension on double {
   }) {
     return AppDimen.current.responsiveDimens(
       mobile: this,
+      tablet: tablet,
+      ultraTablet: ultraTablet,
+    );
+  }
+}
+
+class ResponsiveBuilder {
+  static Widget responsiveWidget({
+    required Widget mobile,
+    Widget? tablet,
+    Widget? ultraTablet,
+  }) {
+    return AppDimen.current.responsiveWidget(
+      mobile: mobile,
       tablet: tablet,
       ultraTablet: ultraTablet,
     );
