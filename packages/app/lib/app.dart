@@ -21,6 +21,7 @@ export 'src/navigation/observer/app_navigator_observer.dart';
 export 'src/resource/dimens/app_dimen.dart';
 export 'src/resource/dimens/dimens.dart';
 export 'src/resource/styles/app_colors.dart';
-export 'src/resource/styles/app_text_styles.dart';
 export 'src/resource/styles/app_themes.dart';
 export 'src/utils/app_utils.dart';
+export 'src/resource/widget_placeholder/placeholder_root_view.dart';
+export 'src/resource/widget_placeholder/placeholder_or_not_widget.dart';
