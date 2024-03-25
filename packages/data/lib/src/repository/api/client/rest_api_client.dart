@@ -53,16 +53,36 @@ class RestApiClient {
         return null;
       }
 
-      return BaseSuccessResponseMapper<D, T>.fromType(
+      return handleResponse<D, T>(
+        response,
+        decoder,
         successResponseMapperType ?? this.successResponseMapperType,
-      ).map(response: response.data, decoder: decoder);
+      );
     } catch (error) {
-      throw DioExceptionMapper(
-        BaseErrorResponseMapper.fromType(
-          errorResponseMapperType ?? this.errorResponseMapperType,
-        ),
-      ).map(error);
+      handleError(
+        errorResponseMapperType ?? this.errorResponseMapperType,
+        error,
+      );
+      return null;
     }
+  }
+
+  /// 可以自定义自己的异常解析逻辑, 预留一个拓展入口
+  void handleError (
+      ErrorResponseMapperType errorResponseMapperType, Object error) {
+    throw DioExceptionMapper(
+      BaseErrorResponseMapper.fromType(errorResponseMapperType),
+    ).map(error);
+  }
+
+  /// 可以自定义自己的解析逻辑, 预留一个拓展入口
+  Future<T?> handleResponse<D extends Object, T extends Object>(
+    Response<dynamic> response,
+    Decoder<D>? decoder,
+    SuccessResponseMapperType successResponseMapperType,
+  ) async {
+    return BaseSuccessResponseMapper<D, T>.fromType(successResponseMapperType)
+        .map(response: response.data, decoder: decoder);
   }
 
   Future<Response<dynamic>> _requestByMethod({

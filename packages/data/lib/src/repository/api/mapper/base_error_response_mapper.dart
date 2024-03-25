@@ -4,6 +4,7 @@ import '../../../../../data.dart';
 
 enum ErrorResponseMapperType {
   jsonObject,
+  simpleJsonObject,
   jsonArray,
   line,
   twitter,
@@ -28,6 +29,8 @@ abstract class BaseErrorResponseMapper<T extends Object> {
         return GoongErrorResponseMapper() as BaseErrorResponseMapper<T>;
       case ErrorResponseMapperType.firebaseStorage:
         return FirebaseStorageErrorResponseMapper() as BaseErrorResponseMapper<T>;
+      case ErrorResponseMapperType.simpleJsonObject:
+        return SimpleJsonObjectErrorResponseMapper() as BaseErrorResponseMapper<T>;
     }
   }
 

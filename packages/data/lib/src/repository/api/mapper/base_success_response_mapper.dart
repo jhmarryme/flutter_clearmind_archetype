@@ -1,3 +1,4 @@
+import 'package:flutter_clearmind_archetype_data/src/repository/api/mapper/base_success_response_mapper/simple_data_json_object_response_mapepr.dart';
 import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 import '../../../../../data.dart';
@@ -6,6 +7,7 @@ enum SuccessResponseMapperType {
   dataJsonObject,
   dataJsonArray,
   jsonObject,
+  simpleJsonObject,
   jsonArray,
   recordsJsonArray,
   resultsJsonArray,
@@ -31,6 +33,8 @@ abstract class BaseSuccessResponseMapper<I extends Object, O extends Object> {
         ResultsJsonArrayResponseMapper<I>() as BaseSuccessResponseMapper<I, O>,
       SuccessResponseMapperType.plain =>
         PlainResponseMapper<I>() as BaseSuccessResponseMapper<I, O>,
+      SuccessResponseMapperType.simpleJsonObject =>
+        SimpleDataJsonObjectResponseMapper<I>() as BaseSuccessResponseMapper<I, O>,
     };
   }
 
