@@ -49,7 +49,9 @@ class ExceptionHandler {
       case AppExceptionType.remoteConfig:
         return _showErrorSnackBar(message: message);
       case AppExceptionType.uncaught:
-        return null;
+        return;
+      case AppExceptionType.inner:
+        return _showErrorSnackBar(message: message);
       case AppExceptionType.validation:
         await _showErrorDialog(message: message);
         break;

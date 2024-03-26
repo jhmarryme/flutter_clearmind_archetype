@@ -1,9 +1,12 @@
 import '../base/app_exception.dart';
 
 class ValidationException extends AppException {
-  const ValidationException(this.kind) : super(AppExceptionType.validation);
+  const ValidationException(this.kind, {this.msg})
+      : super(AppExceptionType.validation);
 
   final ValidationExceptionKind kind;
+
+  final String? msg;
 
   @override
   String toString() {
@@ -12,6 +15,7 @@ class ValidationException extends AppException {
 }
 
 enum ValidationExceptionKind {
+  custom,
   invalidEmail,
   emptyEmail,
   invalidPassword,

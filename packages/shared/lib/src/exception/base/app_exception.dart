@@ -10,4 +10,5 @@ enum AppExceptionType {
   remoteConfig,
   uncaught,
   validation,
+  inner,
 }

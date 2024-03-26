@@ -36,6 +36,7 @@ export 'src/exception/remote/server_error_detail.dart';
 export 'src/exception/remote_config/remote_config_exception.dart';
 export 'src/exception/uncaught/app_uncaught_exception.dart';
 export 'src/exception/validation/validation_exception.dart';
+export 'src/exception/inner/app_inner_exception.dart';
 export 'src/helper/app_info.dart';
 export 'src/helper/function/function.dart';
 export 'src/helper/run_catching/result.dart';

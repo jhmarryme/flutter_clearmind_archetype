@@ -23,6 +23,8 @@ class ExceptionMessageMapper {
       AppExceptionType.parse => S.current.unknownException('UE-10'),
       AppExceptionType.uncaught => S.current.unknownException('UE-00'),
       AppExceptionType.validation => switch ((appException as ValidationException).kind) {
+          // 支持自定义异常信息
+          ValidationExceptionKind.custom => appException.msg ?? S.current.unknownException('UE-11'),
           ValidationExceptionKind.emptyEmail => S.current.emptyEmail,
           ValidationExceptionKind.invalidEmail => S.current.invalidEmail,
           ValidationExceptionKind.invalidPassword => S.current.invalidPassword,
@@ -32,6 +34,7 @@ class ExceptionMessageMapper {
           ValidationExceptionKind.passwordsAreNotMatch => S.current.passwordsAreNotMatch,
         },
       AppExceptionType.remoteConfig => S.current.unknownException('UE-100'),
+      AppExceptionType.inner => (appException as AppInnerException).msg ?? S.current.unknownException('UE-12')
     };
   }
 }
