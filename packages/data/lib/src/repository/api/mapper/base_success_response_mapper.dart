@@ -10,6 +10,7 @@ enum SuccessResponseMapperType {
   simpleJsonObject,
   jsonArray,
   recordsJsonArray,
+  pagingDataObject,
   resultsJsonArray,
   plain,
 }
@@ -35,6 +36,8 @@ abstract class BaseSuccessResponseMapper<I extends Object, O extends Object> {
         PlainResponseMapper<I>() as BaseSuccessResponseMapper<I, O>,
       SuccessResponseMapperType.simpleJsonObject =>
         SimpleDataJsonObjectResponseMapper<I>() as BaseSuccessResponseMapper<I, O>,
+      SuccessResponseMapperType.pagingDataObject =>
+        SimpleRecordsJsonArrayResponseMapper<I>() as BaseSuccessResponseMapper<I, O>,
     };
   }
 

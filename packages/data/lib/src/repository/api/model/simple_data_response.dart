@@ -4,6 +4,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'simple_data_response.freezed.dart';
 part 'simple_data_response.g.dart';
 
+/// 支持的数据结构如下
+/// data 可以为自定义类型
+/*
+{
+	"code": 200,
+	"msg": "",
+	"data": null
+}
+ */
 @Freezed(genericArgumentFactories: true)
 class SimpleDataResponse<T> with _$SimpleDataResponse<T> {
   const factory SimpleDataResponse({
@@ -17,13 +26,13 @@ class SimpleDataResponse<T> with _$SimpleDataResponse<T> {
 }
 
 @Freezed(genericArgumentFactories: true)
-class SimlpeDataListResponse<T> with _$SimlpeDataListResponse<T> {
-  const factory SimlpeDataListResponse({
+class SimpleDataListResponse<T> with _$SimpleDataListResponse<T> {
+  const factory SimpleDataListResponse({
     @JsonKey(name: 'code') int? code,
     @JsonKey(name: 'msg') String? msg,
     @JsonKey(name: 'data') List<T>? data,
-  }) = _SimlpeDataListResponse;
+  }) = _SimpleDataListResponse;
 
-  factory SimlpeDataListResponse.fromJson(Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$SimlpeDataListResponseFromJson(json, fromJsonT);
+  factory SimpleDataListResponse.fromJson(Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$SimpleDataListResponseFromJson(json, fromJsonT);
 }
