@@ -12,6 +12,17 @@ enum ErrorResponseMapperType {
   firebaseStorage,
 }
 
+/// 预留的拓展类型
+enum ErrorResponseMapperTypeExtension {
+  extension1,
+  extension2,
+  extension3,
+  extension4,
+  extension5,
+  extension6,
+  extension7,
+}
+
 abstract class BaseErrorResponseMapper<T extends Object> {
   const BaseErrorResponseMapper();
 

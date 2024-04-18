@@ -15,6 +15,17 @@ enum SuccessResponseMapperType {
   plain,
 }
 
+/// 预留的拓展类型
+enum SuccessResponseMapperTypeExtension {
+  extension1,
+  extension2,
+  extension3,
+  extension4,
+  extension5,
+  extension6,
+  extension7,
+}
+
 abstract class BaseSuccessResponseMapper<I extends Object, O extends Object> {
   const BaseSuccessResponseMapper();
 

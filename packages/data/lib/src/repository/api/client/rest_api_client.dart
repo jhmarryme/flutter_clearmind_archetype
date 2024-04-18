@@ -24,6 +24,8 @@ class RestApiClient {
     Decoder<D>? decoder,
     SuccessResponseMapperType? successResponseMapperType,
     ErrorResponseMapperType? errorResponseMapperType,
+    SuccessResponseMapperTypeExtension? successResponseMapperTypeExtension,
+    ErrorResponseMapperTypeExtension? errorResponseMapperTypeExtension,
     Options? options,
   }) async {
     assert(
@@ -52,22 +54,39 @@ class RestApiClient {
       if (response.data == null) {
         return null;
       }
+      // 优先支持拓展的类型
+      if (successResponseMapperTypeExtension != null) {
+        return handleResponseI<D, T>(
+          response,
+          decoder,
+          successResponseMapperTypeExtension,
+        );
+      } else {
+        return handleResponse<D, T>(
+          response,
+          decoder,
+          successResponseMapperType ?? this.successResponseMapperType,
+        );
+      }
 
-      return handleResponse<D, T>(
-        response,
-        decoder,
-        successResponseMapperType ?? this.successResponseMapperType,
-      );
     } catch (error) {
-      handleError(
-        errorResponseMapperType ?? this.errorResponseMapperType,
-        error,
-      );
+      // 优先支持拓展的类型
+      if (errorResponseMapperTypeExtension != null) {
+        handleErrorI(
+          errorResponseMapperTypeExtension,
+          error,
+        );
+      } else {
+        handleError(
+          errorResponseMapperType ?? this.errorResponseMapperType,
+          error,
+        );
+      }
       return null;
     }
   }
 
-  /// 可以自定义自己的异常解析逻辑, 预留一个拓展入口
+  /// 预定义异常解析逻辑,
   void handleError (
       ErrorResponseMapperType errorResponseMapperType, Object error) {
     throw DioExceptionMapper(
@@ -75,7 +94,7 @@ class RestApiClient {
     ).map(error);
   }
 
-  /// 可以自定义自己的解析逻辑, 预留一个拓展入口
+  /// 预定义解析逻辑
   Future<T?> handleResponse<D extends Object, T extends Object>(
     Response<dynamic> response,
     Decoder<D>? decoder,
@@ -83,6 +102,21 @@ class RestApiClient {
   ) async {
     return BaseSuccessResponseMapper<D, T>.fromType(successResponseMapperType)
         .map(response: response.data, decoder: decoder);
+  }
+
+  /// 可以自定义自己的异常解析逻辑, 预留一个拓展入口
+  void handleErrorI (
+      ErrorResponseMapperTypeExtension errorResponseMapperType, Object error) {
+    throw UnimplementedError("please implement your handleErrorI method");
+  }
+
+  /// 可以自定义自己的解析逻辑, 预留一个拓展入口
+  Future<T?> handleResponseI<D extends Object, T extends Object>(
+    Response<dynamic> response,
+    Decoder<D>? decoder,
+      SuccessResponseMapperTypeExtension successResponseMapperType,
+  ) async {
+    throw UnimplementedError("please implement your handleResponseI method");
   }
 
   Future<Response<dynamic>> _requestByMethod({
