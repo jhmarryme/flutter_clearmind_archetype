@@ -3,5 +3,9 @@ class LocaleConstants {
 
   static const en = 'en';
   static const ja = 'ja';
-  static const defaultLocale = 'en';
+  static const zhCn = 'zh_CN';
+  static const zhTw = 'zh_TW';
+  static const defaultLocale = 'zh_CN';
+  static const defaultLanguageCode = 'zh';
+  static const defaultCountryCode = 'CN';
 }

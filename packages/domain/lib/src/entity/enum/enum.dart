@@ -28,7 +28,16 @@ enum LanguageCode {
   ja(
     localeCode: LocaleConstants.ja,
     serverValue: ServerRequestResponseConstants.ja,
-  );
+  ),
+  zhCn(
+    localeCode: LocaleConstants.zhCn,
+    serverValue: ServerRequestResponseConstants.zhCn,
+  ),
+  zhTw(
+    localeCode: LocaleConstants.zhTw,
+    serverValue: ServerRequestResponseConstants.zhTw,
+  ),
+  ;
 
   const LanguageCode({
     required this.localeCode,
@@ -38,7 +47,18 @@ enum LanguageCode {
   final String localeCode;
   final String serverValue;
 
-  static const defaultValue = ja;
+  static const defaultValue = zhCn;
+
+  /// 获取languageCode, 从zh_TW取出zh部分
+  String get languageCode => localeCode.substring(0, 2);
+
+  /// 获取countryCode, 从zh_TW取出TW部分
+  String get countryCode {
+    if (localeCode.length <= 2) {
+      return '';
+    }
+    return localeCode.substring(3, 5);
+  }
 }
 
 enum NotificationType {

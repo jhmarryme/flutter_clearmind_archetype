@@ -31,3 +31,5 @@ build/
 /lib/src/generated/intl/messages_en.dart
 /lib/src/generated/intl/messages_ja.dart
 /lib/src/generated/l10n.dart
+/lib/src/generated/intl/messages_zh_CN.dart
+/lib/src/generated/intl/messages_zh_TW.dart
