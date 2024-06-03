@@ -3,7 +3,7 @@ class NavigationConstants {
 
   // path
   static const loginPath = '/login';
-  static const homePath = '/';
+  static const homePath = '/home';
   static const itemDetailPath = '/detail/:$userIdPathParam';
   static const searchPath = '/search';
   static const myPagePath = '/my-page';

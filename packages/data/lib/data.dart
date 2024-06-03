@@ -22,6 +22,7 @@ export 'src/repository/api/mapper/base_success_response_mapper/plain_response_ma
 export 'src/repository/api/mapper/base_success_response_mapper/records_json_array_response_mapper.dart';
 export 'src/repository/api/mapper/base_success_response_mapper/results_json_array_response_mapper.dart';
 export 'src/repository/api/mapper/base_success_response_mapper/paging_data_response_mapper.dart';
+export 'src/repository/api/mapper/base_success_response_mapper/simple_data_json_array_response_mapepr.dart';
 export 'src/repository/api/mapper/exception_mapper/dio_exception_mapper.dart';
 export 'src/repository/api/middleware/base_interceptor.dart';
 export 'src/repository/api/middleware/basic_auth_interceptor.dart';
@@ -32,5 +33,6 @@ export 'src/repository/api/middleware/retry_on_error_interceptor.dart';
 export 'src/repository/api/model/data_response.dart';
 export 'src/repository/api/model/records_response.dart';
 export 'src/repository/api/model/results_response.dart';
+export 'src/repository/api/model/simple_data_response.dart';
 export 'src/repository/api/model/simple_data_response.dart';
 export 'src/repository/api/model/paging_data_response.dart';
