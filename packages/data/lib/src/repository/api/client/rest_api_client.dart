@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'package:flutter_clearmind_archetype_shared/shared.dart';
+import 'package:flutter_clearmind_archetype_shared/src/model/typedef.dart';
 import '../../../../../data.dart';
 
 enum RestMethod { get, post, put, patch, delete }
