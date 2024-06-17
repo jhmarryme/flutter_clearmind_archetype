@@ -62,3 +62,4 @@ export 'src/utils/string_utils.dart';
 export 'src/utils/validation_utils.dart';
 export 'src/utils/view_utils.dart';
 export 'src/utils/list_utils.dart';
+export 'src/helper/platform/multi_platform.dart';
