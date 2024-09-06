@@ -26,3 +26,4 @@ export 'src/resource/styles/app_themes.dart';
 export 'src/resource/widget_placeholder/placeholder_or_not_widget.dart';
 export 'src/resource/widget_placeholder/placeholder_root_view.dart';
 export 'src/utils/app_utils.dart';
+export 'src/resource/resource.dart';
