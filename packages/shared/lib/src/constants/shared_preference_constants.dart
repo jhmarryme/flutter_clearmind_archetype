@@ -4,7 +4,7 @@ class SharedPreferenceKeys {
   static const accessToken = 'accessToken';
   static const refreshToken = 'refreshToken';
   static const currentUser = 'currentUser';
-  static const isDarkMode = 'isDarkMode';
+  static const themeModeCode = 'themeModeCode';
   static const deviceToken = 'deviceToken';
   static const isFirstLogin = 'isFirstLogin';
   static const isFirstLaunchApp = 'isFirstLaunchApp';

@@ -19,7 +19,7 @@ class IsLoggedInStatusChanged extends AppEvent with _$IsLoggedInStatusChanged {
 @freezed
 class AppThemeChanged extends AppEvent with _$AppThemeChanged {
   const factory AppThemeChanged({
-    required bool isDarkTheme,
+    required ThemeModeCode themeModeCode,
   }) = _AppThemeChanged;
 }
 

@@ -25,6 +25,7 @@ flutter:
 
 flutter_intl:
   enabled: false
+  class_name: ClearmindArchtypeS
   main_locale: en
   output_dir: lib/src/generated
   arb_dir: lib/src/l10n

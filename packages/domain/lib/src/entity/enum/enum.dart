@@ -20,6 +20,19 @@ enum Gender {
   static const defaultValue = unknown;
 }
 
+enum ThemeModeCode {
+  system(ServerRequestResponseConstants.system),
+  dark(ServerRequestResponseConstants.dark),
+  light(ServerRequestResponseConstants.light),
+  ;
+
+  const ThemeModeCode(this.serverValue);
+
+  final int serverValue;
+
+  static const defaultValue = system;
+}
+
 enum LanguageCode {
   en(
     localeCode: LocaleConstants.en,
@@ -85,11 +98,11 @@ enum BottomTab {
   String get title {
     switch (this) {
       case BottomTab.home:
-        return S.current.home;
+        return ClearmindArchtypeS.current.home;
       case BottomTab.search:
-        return S.current.search;
+        return ClearmindArchtypeS.current.search;
       case BottomTab.myPage:
-        return S.current.myPage;
+        return ClearmindArchtypeS.current.myPage;
     }
   }
 }

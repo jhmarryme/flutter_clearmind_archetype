@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 
 import '../../../app.dart';
 
@@ -28,12 +29,17 @@ extension ThemeDataExtensions on ThemeData {
     _appColorMap[type] = appColor;
   }
 
+  // todo 弃用, 使用框架自带的即可
   AppColors get appColor {
-    return _appColorMap[AppThemeSetting.currentAppThemeType] ?? AppColors.defaultAppColor;
+    return _appColorMap[AppThemeSetting.currentAppThemeType] ??
+        AppColors.defaultAppColor;
   }
 }
 
 class AppThemeSetting {
   const AppThemeSetting._();
+
+  // tood
   static late AppThemeType currentAppThemeType = AppThemeType.light;
+  static late ThemeModeCode currentAppThemeMode = ThemeModeCode.system;
 }

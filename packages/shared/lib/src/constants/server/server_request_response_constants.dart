@@ -17,4 +17,9 @@ class ServerRequestResponseConstants {
   static const female = 1;
   static const other = 2;
   static const unknown = -1;
+
+  /// theme code
+  static const system = 0;
+  static const dark = 1;
+  static const light = 2;
 }

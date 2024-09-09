@@ -1,5 +1,5 @@
-import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../app.dart';
@@ -8,7 +8,7 @@ import '../../../../app.dart';
 class AppBloc extends BaseBloc<AppEvent, AppState> {
   AppBloc(
     this._getInitialAppDataUseCase,
-    this._saveIsDarkModeUseCase,
+    this._saveThemeModeCodeUseCase,
     this._saveLanguageCodeUseCase,
   ) : super(const AppState()) {
     on<IsLoggedInStatusChanged>(
@@ -33,24 +33,28 @@ class AppBloc extends BaseBloc<AppEvent, AppState> {
   }
 
   final GetInitialAppDataUseCase _getInitialAppDataUseCase;
-  final SaveIsDarkModeUseCase _saveIsDarkModeUseCase;
+  final SaveThemeModeCodeUseCase _saveThemeModeCodeUseCase;
   final SaveLanguageCodeUseCase _saveLanguageCodeUseCase;
 
-  void _onIsLoggedInStatusChanged(IsLoggedInStatusChanged event, Emitter<AppState> emit) {
+  void _onIsLoggedInStatusChanged(
+      IsLoggedInStatusChanged event, Emitter<AppState> emit) {
     emit(state.copyWith(isLoggedIn: event.isLoggedIn));
   }
 
-  Future<void> _onAppThemeChanged(AppThemeChanged event, Emitter<AppState> emit) async {
+  Future<void> _onAppThemeChanged(
+      AppThemeChanged event, Emitter<AppState> emit) async {
     await runBlocCatching(
       action: () async {
-        await _saveIsDarkModeUseCase.execute(SaveIsDarkModeInput(isDarkMode: event.isDarkTheme));
-        _updateThemeSetting(event.isDarkTheme);
-        emit(state.copyWith(isDarkTheme: event.isDarkTheme));
+        await _saveThemeModeCodeUseCase.execute(
+            SaveThemeModeCodeInput(themeModeCode: event.themeModeCode));
+        _updateThemeSetting(event.themeModeCode);
+        emit(state.copyWith(themeModeCode: event.themeModeCode));
       },
     );
   }
 
-  Future<void> _onAppLanguageChanged(AppLanguageChanged event, Emitter<AppState> emit) async {
+  Future<void> _onAppLanguageChanged(
+      AppLanguageChanged event, Emitter<AppState> emit) async {
     await runBlocCatching(
       action: () async {
         await _saveLanguageCodeUseCase
@@ -60,13 +64,15 @@ class AppBloc extends BaseBloc<AppEvent, AppState> {
     );
   }
 
-  Future<void> _onAppInitiated(AppInitiated event, Emitter<AppState> emit) async {
+  Future<void> _onAppInitiated(
+      AppInitiated event, Emitter<AppState> emit) async {
     await runBlocCatching(
       action: () async {
-        final output = _getInitialAppDataUseCase.execute(const GetInitialAppDataInput());
-        _updateThemeSetting(output.isDarkMode);
+        final output =
+            _getInitialAppDataUseCase.execute(const GetInitialAppDataInput());
+        _updateThemeSetting(output.themeModeCode);
         emit(state.copyWith(
-          isDarkTheme: output.isDarkMode,
+          themeModeCode: output.themeModeCode,
           isLoggedIn: output.isLoggedIn,
           languageCode: output.languageCode,
         ));
@@ -74,7 +80,7 @@ class AppBloc extends BaseBloc<AppEvent, AppState> {
     );
   }
 
-  void _updateThemeSetting(bool isDarkTheme) {
-    AppThemeSetting.currentAppThemeType = isDarkTheme ? AppThemeType.dark : AppThemeType.light;
+  void _updateThemeSetting(ThemeModeCode themeModeCode) {
+    AppThemeSetting.currentAppThemeMode = themeModeCode;
   }
 }

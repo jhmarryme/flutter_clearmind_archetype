@@ -23,5 +23,5 @@ export 'src/usecase/base/stream/base_stream_use_case.dart';
 export 'src/usecase/base/sync/base_sync_use_case.dart';
 export 'src/usecase/clear_current_user_data_use_case.dart';
 export 'src/usecase/get_initial_app_data_use_case.dart';
-export 'src/usecase/save_is_dark_mode_use_case.dart';
+export 'src/usecase/save_theme_mode_code_use_case.dart';
 export 'src/usecase/save_language_code_use_case.dart';

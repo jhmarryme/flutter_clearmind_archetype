@@ -3,13 +3,13 @@ import '../../domain.dart';
 abstract class AppRepository {
   bool get isLoggedIn;
 
-  bool get isDarkMode;
-
   LanguageCode get languageCode;
+  
+  ThemeModeCode get themeModeCode;
 
   Future<void> clearCurrentUserData();
 
-  Future<bool> saveIsDarkMode(bool isDarkMode);
+  Future<bool> saveThemeModeCode(ThemeModeCode themeCode);
 
   Future<bool> saveLanguageCode(LanguageCode languageCode);
 

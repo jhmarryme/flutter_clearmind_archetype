@@ -10,6 +10,6 @@ class AppState extends BaseBlocState with _$AppState {
   const factory AppState({
     @Default(LanguageCode.ja) LanguageCode languageCode,
     @Default(false) bool isLoggedIn,
-    @Default(false) bool isDarkTheme,
+    @Default(ThemeModeCode.defaultValue) ThemeModeCode themeModeCode,
   }) = _AppState;
 }

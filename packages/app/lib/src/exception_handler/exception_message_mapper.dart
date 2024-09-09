@@ -7,34 +7,34 @@ class ExceptionMessageMapper {
   String map(AppException appException) {
     return switch (appException.appExceptionType) {
       AppExceptionType.remote => switch ((appException as RemoteException).kind) {
-          RemoteExceptionKind.badCertificate => S.current.unknownException('UE-01'),
-          RemoteExceptionKind.noInternet => S.current.noInternetException,
-          RemoteExceptionKind.network => S.current.canNotConnectToHost,
+          RemoteExceptionKind.badCertificate => ClearmindArchtypeS.current.unknownException('UE-01'),
+          RemoteExceptionKind.noInternet => ClearmindArchtypeS.current.noInternetException,
+          RemoteExceptionKind.network => ClearmindArchtypeS.current.canNotConnectToHost,
           RemoteExceptionKind.serverDefined =>
-            appException.generalServerMessage ?? S.current.unknownException('UE-02'),
+            appException.generalServerMessage ?? ClearmindArchtypeS.current.unknownException('UE-02'),
           RemoteExceptionKind.serverUndefined =>
-            appException.generalServerMessage ?? S.current.unknownException('UE-03'),
-          RemoteExceptionKind.timeout => S.current.timeoutException,
-          RemoteExceptionKind.cancellation => S.current.unknownException('UE-04'),
-          RemoteExceptionKind.unknown => S.current.unknownException('UE-05'),
-          RemoteExceptionKind.refreshTokenFailed => S.current.tokenExpired,
-          RemoteExceptionKind.decodeError => S.current.unknownException('UE-06'),
+            appException.generalServerMessage ?? ClearmindArchtypeS.current.unknownException('UE-03'),
+          RemoteExceptionKind.timeout => ClearmindArchtypeS.current.timeoutException,
+          RemoteExceptionKind.cancellation => ClearmindArchtypeS.current.unknownException('UE-04'),
+          RemoteExceptionKind.unknown => ClearmindArchtypeS.current.unknownException('UE-05'),
+          RemoteExceptionKind.refreshTokenFailed => ClearmindArchtypeS.current.tokenExpired,
+          RemoteExceptionKind.decodeError => ClearmindArchtypeS.current.unknownException('UE-06'),
         },
-      AppExceptionType.parse => S.current.unknownException('UE-10'),
-      AppExceptionType.uncaught => S.current.unknownException('UE-00'),
+      AppExceptionType.parse => ClearmindArchtypeS.current.unknownException('UE-10'),
+      AppExceptionType.uncaught => ClearmindArchtypeS.current.unknownException('UE-00'),
       AppExceptionType.validation => switch ((appException as ValidationException).kind) {
           // 支持自定义异常信息
-          ValidationExceptionKind.custom => appException.msg ?? S.current.unknownException('UE-11'),
-          ValidationExceptionKind.emptyEmail => S.current.emptyEmail,
-          ValidationExceptionKind.invalidEmail => S.current.invalidEmail,
-          ValidationExceptionKind.invalidPassword => S.current.invalidPassword,
-          ValidationExceptionKind.invalidUserName => S.current.invalidUserName,
-          ValidationExceptionKind.invalidPhoneNumber => S.current.invalidPhoneNumber,
-          ValidationExceptionKind.invalidDateTime => S.current.invalidDateTime,
-          ValidationExceptionKind.passwordsAreNotMatch => S.current.passwordsAreNotMatch,
+          ValidationExceptionKind.custom => appException.msg ?? ClearmindArchtypeS.current.unknownException('UE-11'),
+          ValidationExceptionKind.emptyEmail => ClearmindArchtypeS.current.emptyEmail,
+          ValidationExceptionKind.invalidEmail => ClearmindArchtypeS.current.invalidEmail,
+          ValidationExceptionKind.invalidPassword => ClearmindArchtypeS.current.invalidPassword,
+          ValidationExceptionKind.invalidUserName => ClearmindArchtypeS.current.invalidUserName,
+          ValidationExceptionKind.invalidPhoneNumber => ClearmindArchtypeS.current.invalidPhoneNumber,
+          ValidationExceptionKind.invalidDateTime => ClearmindArchtypeS.current.invalidDateTime,
+          ValidationExceptionKind.passwordsAreNotMatch => ClearmindArchtypeS.current.passwordsAreNotMatch,
         },
-      AppExceptionType.remoteConfig => S.current.unknownException('UE-100'),
-      AppExceptionType.inner => (appException as AppInnerException).msg ?? S.current.unknownException('UE-12')
+      AppExceptionType.remoteConfig => ClearmindArchtypeS.current.unknownException('UE-100'),
+      AppExceptionType.inner => (appException as AppInnerException).msg ?? ClearmindArchtypeS.current.unknownException('UE-12')
     };
   }
 }

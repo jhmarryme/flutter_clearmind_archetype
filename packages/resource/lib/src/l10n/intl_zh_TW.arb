@@ -27,5 +27,13 @@
   "myPage": "我的頁面",
   "home": "主頁",
   "darkTheme": "暗黑主題",
-  "japanese": "日語"
+  "japanese": "日語",
+  "theme": "主題",
+  "themeModeCode_followSystem": "跟隨系統",
+  "themeModeCode_dark": "深色模式",
+  "themeModeCode_light": "淺色模式",
+  "multi_language": "多語言",
+  "multi_language_simplified_chinese": "簡體中文",
+  "multi_language_english": "英語",
+  "multi_language_traditional_chinese": "繁體中文"
 }

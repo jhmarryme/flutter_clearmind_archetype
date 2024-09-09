@@ -79,7 +79,7 @@ class CommonDialog extends StatelessWidget {
             (e) => TextButton(
               onPressed: e.onPressed?.function,
               child: Text(
-                e.text ?? S.current.ok,
+                e.text ?? ClearmindArchtypeS.current.ok,
                 style: e.isDefault
                     ? DefaultAppTextStyles.s14w400Secondary()
                     : DefaultAppTextStyles.s14w400Primary(),
@@ -108,7 +108,7 @@ class CommonDialog extends StatelessWidget {
           .map((e) => CupertinoDialogAction(
                 onPressed: e.onPressed?.function,
                 child: Text(
-                  e.text ?? S.current.ok,
+                  e.text ?? ClearmindArchtypeS.current.ok,
                   style: e.isDefault
                       ? DefaultAppTextStyles.s14w400Secondary()
                       : DefaultAppTextStyles.s14w400Primary(),

@@ -27,5 +27,13 @@
   "myPage": "My Page",
   "home": "Home",
   "darkTheme": "Dark Theme",
-  "japanese": "Japanese"
+  "japanese": "Japanese",
+  "theme": "Theme",
+  "themeModeCode_followSystem": "Follow system",
+  "themeModeCode_dark": "Dark mode",
+  "themeModeCode_light": "Light mode",
+  "multi_language": "Multi-language",
+  "multi_language_simplified_chinese": "Simplified Chinese",
+  "multi_language_english": "English",
+  "multi_language_traditional_chinese": "Traditional Chinese"
 }
